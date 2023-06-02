@@ -13,7 +13,7 @@ app.get('/:urlId', async function (req, res) {
              { $inc: { clicked: 1 }});
         res.status(200).redirect(isUrlExist.origUrl);
     }else{
-        res.status(400).json({message: 'short url doesn`t exist.'});
+        res.status(200).json({message: 'short url doesn`t exist.'});
     }
 });
 

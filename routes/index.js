@@ -15,7 +15,7 @@ app.post('/short', async function (req, res) {
     }else{
         const isUrlExist = await Url.findOne({ origUrl: req.body.origUrl }).exec();
         if(isUrlExist){
-            res.json({
+            res.status(200).json({
                 message: 'URL already exist.',
                 shortUrl: isUrlExist.shortUrl
             });
@@ -28,7 +28,7 @@ app.post('/short', async function (req, res) {
                 date: Date.now()
             });
             await newUrl.save();
-            res.json(newUrl);
+            res.status(200).json(newUrl);
         }
     }
 });

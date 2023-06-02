@@ -4,9 +4,8 @@ dotenv.config();
 
 async function connectToDB() {
     try{
-        await mongoose.connect('mongodb://' + process.env.BASE + '/url-shortener');
+        await mongoose.connect('mongodb+srv://' + process.env.USER + ':' + process.env.PASSWORD + '@cluster0.nwu85fw.mongodb.net/todolistDB')
         console.log("Connection to DB Mongoose succeed.");
-        // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
     }catch(err){
         console.log(err);
         console.log("Failed connecting to DB Mongoose.");
